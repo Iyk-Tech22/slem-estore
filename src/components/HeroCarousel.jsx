@@ -52,11 +52,11 @@ export default function HeroCarousel() {
         </div>
       </div>
       
-      <div className="absolute inset-x-0 bottom-0 gap-3 flex -translate-y-1/2 transform justify-center">
-        <div  className={`h-3 w-3 cursor-pointer rounded-full ${currentSlide === 1 ? 'bg-[#DB4444] border-2 border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(1)}></div>
-        <div className={`h-3 w-3 cursor-pointer rounded-full ${currentSlide === 2 ? 'bg-[#DB4444] border-2 border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(2)}></div>
-        <div className={`h-3 w-3 cursor-pointer rounded-full ${currentSlide === 3 ? 'bg-[#DB4444] border-2 border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(3)}></div>
-        <div className={`h-3 w-3  cursor-pointer rounded-full ${currentSlide === 4 ? 'bg-[#DB4444] border-2 border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(4)}></div>
+      <div className="absolute inset-x-0 bottom-2 gap-3 flex -translate-y-1/2 transform justify-center">
+        <div  className={`h-3 w-3 cursor-pointer rounded-full ${currentSlide === 1 ? 'bg-[#DB4444] border border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(1)}></div>
+        <div className={`h-3 w-3 cursor-pointer rounded-full ${currentSlide === 2 ? 'bg-[#DB4444] border border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(2)}></div>
+        <div className={`h-3 w-3 cursor-pointer rounded-full ${currentSlide === 3 ? 'bg-[#DB4444] border border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(3)}></div>
+        <div className={`h-3 w-3  cursor-pointer rounded-full ${currentSlide === 4 ? 'bg-[#DB4444] border border-white' : 'bg-gray-400'}`} onClick={() => setCurrentSlide(4)}></div>
       </div>
     </div>
  
