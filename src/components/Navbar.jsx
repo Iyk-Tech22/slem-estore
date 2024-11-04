@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export default function Navbar() {
@@ -66,21 +67,16 @@ export default function Navbar() {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Product</a></li>
-        {/* <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li> */}
+           <li><Link to='/'>Product</Link></li>
+   
         <li><a>Contact</a></li>
       </ul>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex ">
     <ul className="menu menu-horizontal px-4 ">
-      <li ><a >Product</a></li>
+      <li><Link to='/'>Product</Link></li>
+    
       {/* <li>
         <details>
           <summary>Parent</summary>
