@@ -34,13 +34,13 @@ export default function CategoryCarousel({ currentSlide }) {
             key={index}
             className="carousel-item  w-full md:w-[20%] p-2"
           >
-            <div className="bg-gray-50 w-full hover:bg-red-500 cursor-pointer flex flex-col items-center justify-center border rounded-box" style={{transform: `translateX(-${(currentSlide - 1) * (100 / totalSlides)}%)`}}>
+            <div className="bg-gray-50 p-4 w-full hover:bg-red-500 cursor-pointer flex flex-col items-center justify-center border rounded border-2" style={{transform: `translateX(-${(currentSlide - 1) * (100 / totalSlides)}%)`}}>
               <img
                 src={item.image}
-                className="rounded-box w-full"
+                className="rounded-box w-[25%] "
                 alt={item.label}
               />
-              <p className='text-md mb-4'>{item.label}</p>
+              <p className='text-md mb-4 mt-6'>{item.label}</p>
             </div>
           </div>
         ))}

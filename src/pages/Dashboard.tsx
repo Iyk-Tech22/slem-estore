@@ -4,7 +4,7 @@ import Category from '../components/Category'
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <Hero/>
       <Category/>
     </div>
