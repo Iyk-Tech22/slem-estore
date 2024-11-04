@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 export default function Navbar() {
@@ -67,26 +67,46 @@ export default function Navbar() {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-           <li><Link to='/'>Product</Link></li>
+           <li> <NavLink
+    to="/"
+    className={({ isActive }) =>
+      isActive ? 'border-b-2  rounded-none  hover:bg-transparent' : ''
+    }
+  >
+    Product
+  </NavLink></li>
    
-        <li><a>Contact</a></li>
+  <li> <NavLink
+    to="/contact"
+    className={({ isActive }) =>
+      isActive ? 'border-b-2 rounded-none hover:bg-transparent' : ''
+    }
+  >
+    Contact
+  </NavLink></li>
       </ul>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex ">
-    <ul className="menu menu-horizontal px-4 ">
-      <li><Link to='/'>Product</Link></li>
+    <ul className="menu menu-horizontal px-4">
+    <li> <NavLink
+    to="/"
+    className={({ isActive }) =>
+      isActive ? 'border-b-2 rounded-none  hover:bg-transparent' : ''
+    }
+  >
+    Product
+  </NavLink></li>
     
-      {/* <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li> */}
-      <li><a>Contact</a></li>
+  
+     <li> <NavLink
+    to="/contact"
+    className={({ isActive }) =>
+      isActive ? 'border-b-2 rounded-none hover:bg-transparent' : ''
+    }
+  >
+    Contact
+  </NavLink></li>
     </ul>
   </div>
   <div className="navbar-end">
