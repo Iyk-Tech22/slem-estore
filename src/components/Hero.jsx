@@ -2,33 +2,51 @@ import HeroCarousel from "./HeroCarousel";
 
 export default function Hero() {
   return (
-    <div className="hero px-6  lg:px-12">
-  <div className="hero-content flex-col lg:flex-row w-full justify-start items-start p-0 gap-0  ">
-    <div className="border-r-2 pr-6 w-[25%] h-80 pt-12  hidden lg:block">
-    <ul
-    
-        >
-        <li className="my-3 "><a>Electronics</a></li>
-        {/* <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+    <div className="hero px-6 lg:px-12 py-6 bg-white ">
+      <div className="hero-content flex-col lg:flex-row w-full justify-start items-start p-0 gap-6">
+        {/* Sidebar Categories */}
+        <div className="border-r-2 pr-8 w-[20%] h-[350px] pt-8 hidden lg:block">
+          <ul className="space-y-4 text-gray-700">
+            {[
+              "Women's Fashion",
+              "Men's Fashion",
+              "Electronics",
+              "Home & Lifestyle",
+              "Medicine",
+              "Sports & Outdoor",
+              "Baby's & Toys",
+              "Groceries & Pets",
+              "Health & Beauty",
+            ].map((category, index) => (
+              <li
+                key={index}
+                className="flex items-center justify-between cursor-pointer hover:text-red-500 transition"
+              >
+                <span>{category}</span>
+                {index < 2 && (
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.95 11.636L8 6.68597L9.414 5.27197L15.778 11.636L9.414 18L8 16.586L12.95 11.636Z"
+                      fill="black"
+                    />
+                  </svg>
+                )}
+              </li>
+            ))}
           </ul>
-        </li> */}
-        <li className="my-3"><a>Home & LifeStyle</a></li>
-        <li className="my-3"><a>Medicine</a></li>
-        <li className="my-3"><a>Sports & Outdoors</a></li>
+        </div>
 
-        <li className="my-3"><a>Baby&apos;s & Toys</a></li>
-        <li className="my-3"><a>Grogeries & Pets</a></li>
-        <li className="my-3"><a>Health & Beauty</a></li>
-      </ul>
+        {/* Carousel Section */}
+        <div className="grow relative">
+          <HeroCarousel />
+        </div>
+      </div>
     </div>
-    <div className="pt-12 lg:pl-12 relative grow">
-    <HeroCarousel/>
-    </div>
-  </div>
-</div>
-  )
+  );
 }

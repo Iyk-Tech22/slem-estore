@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import Category from '../components/Category'
-import Product from '../components/Product'
+import Product from '../components/Product';
 
 export default function Dashboard() {
   return (
@@ -10,5 +10,5 @@ export default function Dashboard() {
       <Category/>
       <Product/>
     </div>
-  )
+  );
 }
