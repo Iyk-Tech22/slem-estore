@@ -1,50 +1,39 @@
-
-import Item1 from '../assets/Category-CellPhone.svg'
-import Item2 from '../assets/Category-Computer.svg'
-import Item3 from '../assets/Category-SmartWatch.svg'
-import Item4 from '../assets/Category-Camera.svg'
-import Item5 from '../assets/Category-Headphone.svg'
-import Item6 from '../assets/Category-Gamepad.svg'
-
+import Item1 from "../assets/Category-CellPhone.svg";
+import Item2 from "../assets/Category-Computer.svg";
+import Item3 from "../assets/Category-SmartWatch.svg";
+import Item4 from "../assets/Category-Camera.svg";
+import Item5 from "../assets/Category-Headphone.svg";
+import Item6 from "../assets/Category-Gamepad.svg";
 
 const items = [
-  { image: Item1, label: 'Phones' },
-  { image: Item2, label: 'Computers' },
-  { image: Item3, label: 'SmartWatch' },
-  { image: Item4, label: 'Camera' },
-  { image: Item5, label: 'Headphone' },
-  { image: Item6, label: 'Gaming' },
+  { image: Item1, label: "Phones" },
+  { image: Item2, label: "Computers" },
+  { image: Item3, label: "SmartWatch" },
+  { image: Item4, label: "Camera" },
+  { image: Item5, label: "Headphones" },
+  { image: Item6, label: "Gaming" },
 ];
 
-// eslint-disable-next-line react/prop-types
-export default function CategoryCarousel({ currentSlide }) {
-  const totalSlides = items.length;
-
+export default function CategoryCarousel({
+  activeCategory,
+  setActiveCategory,
+}) {
   return (
-    <div className="carousel rounded-box w-full overflow-hidden">
-      <div
-        className="carousel flex transition-transform duration-300"
-        style={{
-          
-          width: `${totalSlides * 100}%`, // Ensures that the inner container takes full width
-        }}
-      >
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className="carousel-item  w-full md:w-[20%] p-2"
-          >
-            <div className="bg-gray-50 p-4 w-full hover:bg-red-500 cursor-pointer flex flex-col items-center justify-center border rounded border-2" style={{transform: `translateX(-${(currentSlide - 1) * (100 / totalSlides)}%)`}}>
-              <img
-                src={item.image}
-                className="rounded-box w-[25%] "
-                alt={item.label}
-              />
-              <p className='text-md mb-4 mt-6'>{item.label}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="flex gap-4 overflow-hidden justify-center">
+      {items.map((item, index) => (
+        <div
+          key={index}
+          onClick={() => setActiveCategory(index)}
+          className={`flex w-[170px] h-[145px] flex-col items-center justify-center p-4 cursor-pointer border transition-colors duration-300 ${
+            activeCategory === index
+              ? "bg-red-500 text-white"
+              : "bg-white hover:bg-gray-100"
+          }`}
+        >
+          <img src={item.image} className="w-10 h-10 mb-4" alt={item.label} />
+          <p className="text-md">{item.label}</p>
+        </div>
+      ))}
     </div>
   );
 }
