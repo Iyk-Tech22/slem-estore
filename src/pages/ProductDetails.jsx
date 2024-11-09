@@ -122,7 +122,7 @@ const [rating, setRating] = useState(0);
                     <div className='flex items-center border border-black rounded-t-md gap-6 p-4'>
                     <div><img src={CarDelivery} alt="" /></div>
 <div >
-    <h3 className='font-medium text-md '>Free Delivery</h3>
+    <h3 className='font-medium text-md'>Free Delivery</h3>
     <p className='font-normal text-sm mt-2 underline cursor-pointer'>Enter your postal code for Delivery Availability</p>
 </div>
                     </div>
@@ -132,8 +132,8 @@ const [rating, setRating] = useState(0);
                     <div className='flex items-center border border-black rounded-b-md gap-6 p-4'>
                     <div><img src={Return} alt="" /></div>
 <div >
-    <h3>Return Delivery</h3>
-    <p>Free 30 Days Delivery Returns. Details</p>
+    <h3 className='font-medium text-md'>Return Delivery</h3>
+    <p className='font-normal text-sm mt-2'>Free 30 Days Delivery Returns. Details</p>
 </div>
                     </div>
 
