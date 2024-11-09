@@ -14,7 +14,7 @@ export default function Category() {
         title={"Categories"}
         heading={"Browse By Category"}
         rightComponent={
-          <div className="flex gap-2">
+          <div className="flex gap-2 self-end md:self-center mt-4 md:mt-0">
             <button className="rounded-full w-8 h-8 border bg-gray-300 flex items-center justify-center">
               <img src={ArrowLeft} className="w-4" />
             </button>

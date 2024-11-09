@@ -7,24 +7,28 @@ import Item6 from '../assets/product6.jpg'
 import Item7 from '../assets/product7.png'
 import Item8 from '../assets/product8.jpg'
 import EyeView from '../assets/icon-eye.svg'
-import Star from '../assets/star.svg'
 import StarRating from './StarRating'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const items = [
-    { image: Item1, label: 'Breed Dry Dog Food',rating: Star, price:'100'},
-    { image: Item2, label: 'CANON EOS DSLR Camera',rating: Star,price:'380'},
-    { image: Item3, label: 'ASUS FHD Gaming Laptop', rating: Star,price:'150'},
-    { image: Item4, label: 'Curology Product Set', rating: Star,price:'200'},
-    { image: Item5, label: 'Kids Electric Car', tag: 'NEW', rating: Star,price:'300'},
-    { image: Item6, label: 'Jr. Zoom Soccer Cleats', rating: Star,price:'400' },
-    {image: Item7, label:'Quilted Satin Jacket', tag: 'NEW', rating: Star,price:'160'},
-    {image: Item8, label:'GP11 Shooter USB Gamepad', rating: Star,price:'260'}
+    { image: Item1, label: 'Breed Dry Dog Food', price:'100'},
+    { image: Item2, label: 'CANON EOS DSLR Camera',price:'380'},
+    { image: Item3, label: 'ASUS FHD Gaming Laptop',price:'150'},
+    { image: Item4, label: 'Curology Product Set',price:'200'},
+    { image: Item5, label: 'Kids Electric Car', tag: 'NEW',price:'300'},
+    { image: Item6, label: 'Jr. Zoom Soccer Cleats',price:'400' },
+    {image: Item7, label:'Quilted Satin Jacket', tag: 'NEW',price:'160'},
+    {image: Item8, label:'GP11 Shooter USB Gamepad',price:'260'}
 
   ];
 export default function ProductCarousel({currentSlide}) {
     const totalSlides = items.length;
     const [rating, setRating] = useState(0);
+    const navigate = useNavigate();
+    const handleClick = (id) => {
+      navigate(`/account/${id}`);
+    }
 
     // Update rating when a star is clicked
     const handleRatingChange = (newRating) => {
@@ -41,10 +45,10 @@ export default function ProductCarousel({currentSlide}) {
         >
           {items.map((item, index) => (
              <>
-             <div className='flex flex-col w-full md:w-[23%] h-auto md:h-[70]'>
+             <div key={index} className='flex flex-col w-full md:w-[23%] h-auto md:h-[70]'>
 
             
-           <div key={index} className="card cursor-pointer relative group  border-[#f4f4f4] border-2  bg-base-100 w-96  w-[95%] h-auto  md:h-64 items-center justify-center">
+           <div  className="card cursor-pointer relative group  border-[#f4f4f4] border-2  bg-base-100 w-96  w-[95%] h-auto  md:h-64 items-center justify-center" onClick={()=>handleClick(index)}>
            
            <figure className='my-12 md:my-0'>
              <img
@@ -60,7 +64,7 @@ export default function ProductCarousel({currentSlide}) {
           <svg
             width="32"
             height="32"
-            style={{background:''}}
+            
             viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -98,37 +102,17 @@ export default function ProductCarousel({currentSlide}) {
             src={EyeView} alt='view icon'/></div>
           
            
-            <div className='flex flex-col'>
+            <div className='flex flex-col mt-4'>
             <p className='text-md font-medium'>{item.label}</p>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 mt-2'>
             <p className='text-[#DB4444]'>${item.price}</p>
-            <StarRating rating={5} onChange={handleRatingChange} />
+            <StarRating rating={rating} onChange={handleRatingChange} /> <span>(34)</span>
             </div>
      
            </div>
            </div>
            </>
-            // <div
-            //   key={index}
-            //   className="carousel-item flex-col  w-full  p-2"
-            // >
-            //   <div className="bg-[#fffff] shadow-md relative p-4 w-full h-52 cursor-pointer flex items-center justify-center border rounded-md" style={{transform: `translateX(-${(currentSlide - 1) * (100 / totalSlides)}%)`}}>
-             
-            //     <img
-            //       src={item.image}
-            //       className="rounded-box w-[35%] "
-            //       alt={item.label}
-            //     />
-            
-               
-            //     <div className='absolute top-2 right-4 rounded-full border bg-white h-8 w-8 flex items-center justify-center'>  <img 
-            //   src={EyeView} alt='view icon'/></div>
-            
-            //   </div>
-            //   <div>
-            //   <p className='text-md mb-4 mt-6'>{item.label}</p>
-            //   </div>
-            // </div>
+          
           ))}
           <div className='w-full   flex items-center justify-center'>
             <button className='w-[55%] md:w-[18%] bg-[#DB4444] border h-12 my-6 rounded text-white'>View All Products</button>
